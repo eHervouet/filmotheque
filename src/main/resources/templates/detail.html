@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title><th:block th:text="${film.titre}"></title>
+</head>
+<body>
+	<h3 th:text="${film.titre}"></h3>
+	<p th:text="${film.annee_sortie}"></p>
+	<p th:text="'Durée du film : ' +${film.duree}"></p>
+	<p th:text="'Synopsis : ' +${film.description}"></p>
+<a th:href="@{/liste}">Retour</a>
+</body>
+</html>

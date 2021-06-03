@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Liste des films</title>
+</head>
+<body>
+	<th:block th:each="film: ${listFilm}">
+	    <a th:href="@{/detail/{id}(id=${film.id})}" th:text="${film.titre}" /></a><br/>
+	    
+    </th:block>
+<a href="/accueil">Retour</a>
+</body>
+</html>
