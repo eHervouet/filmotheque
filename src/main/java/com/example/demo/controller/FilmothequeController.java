@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.bean.Film;
+import com.exemple.demo.metier.FilmService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,11 +20,21 @@ import java.util.List;
 @Controller
 public class FilmothequeController {
 	
+	//servicce film
+	private FilmService filmService;
+	
 	private Film film1;
 	private Film film2;
 	private Film film3;
 	private List<Film> listFilm;
 	
+	@Autowired
+	public FilmothequeController(FilmService filmService) {
+			this.filmService = filmService;
+	}
+	
+	
+	//ancien constructeur
 	public FilmothequeController() {
 		film1 = new Film(1, "La menace fantôme", "1999", 136, "Avant de devenir un célèbre chevalier Jedi, et bien avant de se révéler l’âme la plus noire de la galaxie, Anakin Skywalker est un jeune esclave sur la planète Tatooine. La Force est déjà puissante en lui et il est un remarquable pilote de Podracer. Le maître Jedi Qui-Gon Jinn le découvre et entrevoit alors son immense potentiel.\r\n"
 				+ "Pendant ce temps, l’armée de droïdes de l’insatiable Fédération du Commerce a envahi Naboo, une planète pacifique, dans le cadre d’un plan secret des Sith visant à accroître leur pouvoir. Pour défendre la reine de Naboo, Amidala, les chevaliers Jedi vont devoir affronter le redoutable Seigneur Sith, Dark Maul.");
