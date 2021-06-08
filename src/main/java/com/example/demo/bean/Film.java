@@ -2,11 +2,20 @@ package com.example.demo.bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Repository;
+
+@Entity
 public class Film {
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private Integer id;
 
-	private String titre;
+	private String titre;	
 	
 	private String annee_sortie;
 	
@@ -14,7 +23,8 @@ public class Film {
 	
 	private String description;
 	
-	public Film(int id, String titre, String annee_sortie, int duree, String description) {
+	
+	public Film(Integer id, String titre, String annee_sortie, int duree, String description) {
 		this.id = id;
 		this.titre = titre;
 		this.annee_sortie = annee_sortie;
@@ -24,11 +34,11 @@ public class Film {
 	
 	public Film() {}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
